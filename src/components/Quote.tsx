@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../main";
 import { fetchRandomQuote } from "../slices/quoteSlice";
-import { AppDispatch, RootState } from "../main"; 
 
 const Quote = () => {
     const dispatch = useDispatch<AppDispatch>();
