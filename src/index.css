@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary-50 hover:bg-primary-50/95 text-primary-100 text-xl font-semibold py-2 px-4 rounded-full disabled:opacity-50 capitalize;
+  }
+}
