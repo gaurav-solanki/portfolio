@@ -4,7 +4,7 @@ import { BoxesCore } from "./UI/background-boxes";
 const StopWatch = () => {
   const [count, setCount] = useState<number>(0);
   const [isRunning, setIsRunning] = useState<boolean>(false);
-  const intervalRef = useRef<number | undefined>();
+  const intervalRef = useRef<number | null>(null);
 
   const increseCounter = () => {
     setCount((prev) => prev + 1);
@@ -20,10 +20,12 @@ const StopWatch = () => {
 
   const startStopCounter = () => {
     if (!isRunning) {
-      intervalRef.current = setInterval(increseCounter, 1000);
+      intervalRef.current = setInterval(increseCounter, 1000)  as unknown as number;
       setIsRunning(true);
     } else {
-      clearInterval(intervalRef.current);
+      if (intervalRef.current !== null) {
+        clearInterval(intervalRef.current);
+     }
       setIsRunning(false);
     }
   };
